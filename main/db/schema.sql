@@ -1,25 +1,53 @@
-DROP DATABASE IF EXISTS employees_db;
-CREATE DATABASE employees_db;
+DROP DATABASE IF EXISTS employee_db;
+CREATE DATABASE employee_db;
 
-use employees_db;
+USE employee_db;
 
-CREATE TABLE department (
-    id INT PRIMARY KEY,
-    department_name VARCHAR(30)
-);
+select * from employee where manager_id = 1;
 
-CREATE TABLE role (
-    id INT PRIMARY KEY,
-    title VARCHAR(30),
-    salary DECIMAL,
-    FOREIGN KEY (department_id),
-    REFERENCES department(id)
-);
+select * from employee where manager_id = 2;
 
-CREATE TABLE employee (
-    id INT PRIMARY KEY,
-    first_name VARCHAR(30),
-    last_name VARCHAR(30),
-    FOREIGN KEY (role_id) INT,
-    manager_id INT NOT NULL;
-);
+select
+employee.first_name,
+employee.last_name,
+employee.manager_id,
+employee.manager_name
+from employee;
+
+select * from employee;
+
+select * from role;
+
+select * from department;
+
+SELECT
+employee.first_name,
+employee.last_name,
+role.title, 
+department.department_name
+from role
+inner join employee on employee.role_id = role.role_id
+inner join department on department.department_id = role.department_id
+order by employee.first_name;
+
+
+SELECT SUM(salary) FROM employee where ;
+
+
+SELECT
+sum(salary)
+from role
+inner join employee on employee.role_id = role.role_id
+inner join department on department.department_id = role.department_id
+where department_id = ?
+order by employee.first_name;
+
+
+SELECT CONCAT(first_name, ' ', last_name) AS 'Name' from employee;
+delete from employee where 'Name' = "Test Test";
+
+
+select * from employee where manager_id=2 and id=2 = 'Troy Batson';
+
+SELECT employee.first_name, employee.last_name, role.role, role.salary, department.department_name from role 
+inner join employee on employee.role_id = role.role_id inner join department on department.department_id = role.department_id where department_name = 'sales'; 

@@ -51,4 +51,4 @@ VALUES
 (16, "Paul", "Crew", 16, 19),
 (17, "Nicky", "Summers", 17, null),
 (18, "Jill", "Sadelstein", 18, 17),
-(19, "Sam", "Brenner", 19, null),
+(19, "Sam", "Brenner", 19, null);
